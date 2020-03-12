@@ -16,14 +16,10 @@ const initialState = {
 
 const reducer = (state, action) => {
   const { type, payload } = action;
-  switch (type) {
-    case TYPES.UPDATE_NAME:
-      return { ...state, ...payload };
-    case TYPES.UPDATE_TEL:
-      return { ...state, ...payload };
-    default:
-      return state;
+  if (Object.values(TYPES).includes(type)) {
+    return { ...state, ...payload };
   }
+  return state;
 };
 
 function App() {
